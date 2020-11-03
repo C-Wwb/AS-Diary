@@ -33,6 +33,29 @@
             />
     </LinearLayout>
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="38dp">
+
+        <EditText
+            android:id="@+id/authorEditTextId"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:backgroundTint="#00ffffff"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="Author"
+            android:inputType="textMultiLine"
+            android:scrollbars="vertical"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="48dp" />
+    </LinearLayout>
+
      <LinearLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
@@ -53,7 +76,6 @@
 
      </LinearLayout>
 
-
       <LinearLayout
           android:layout_width="match_parent"
           android:layout_height="match_parent"
@@ -69,11 +91,11 @@
               android:ems="10"
               android:gravity="start"
               android:hint="Description"
+              android:inputType="textMultiLine"
+              android:scrollbars="vertical"
               tools:ignore="MissingConstraints"
               tools:layout_editor_absoluteX="0dp"
-              tools:layout_editor_absoluteY="48dp"
-              android:scrollbars="vertical"
-              android:inputType="textMultiLine"/>
+              tools:layout_editor_absoluteY="48dp" />
       </LinearLayout>
 
  </LinearLayout>

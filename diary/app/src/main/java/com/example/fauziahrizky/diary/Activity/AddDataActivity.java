@@ -14,7 +14,7 @@ import com.example.fauziahrizky.diary.R;
 import java.util.Date;
 
 public class AddDataActivity extends AppCompatActivity {
-    EditText subjectEt,descriptionEt;
+    EditText authorEt,subjectEt,descriptionEt;
     Button cancelBt,saveBt,shareBt;
     SqliteDatabase mydb;
 
@@ -25,6 +25,7 @@ public class AddDataActivity extends AppCompatActivity {
 
         mydb = new SqliteDatabase(this);
 
+        authorEt = findViewById(R.id.authorEditTextId);
         subjectEt = findViewById(R.id.subjectEditTextId);
         descriptionEt = findViewById(R.id.descriptionEditTextId);
 
@@ -59,7 +60,7 @@ public class AddDataActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(),"You didn't add any subject",Toast.LENGTH_SHORT).show();
         }
         else{
-            l = mydb.insertData(subjectEt.getText().toString(),
+            l = mydb.insertData(authorEt.getText().toString(),subjectEt.getText().toString(),
                     descriptionEt.getText().toString(),
                     d);
         }

@@ -11,7 +11,7 @@ public class InstructionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instruction);
 
-       // instructionTv = findViewById(R.id.instructionTextView);
+        // instructionTv = findViewById(R.id.instructionTextView);
 
 
     }

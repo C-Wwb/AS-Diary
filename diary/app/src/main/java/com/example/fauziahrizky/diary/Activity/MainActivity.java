@@ -53,12 +53,12 @@ public class MainActivity extends AppCompatActivity {
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 
-       // ClickListener for floating action bar
+        // ClickListener for floating action bar
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(MainActivity.this,AddDataActivity.class);
-               startActivity(intent);
+                Intent intent = new Intent(MainActivity.this,AddDataActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(MainActivity.this,UpdateActivity.class);
+                intent.putExtra("author",arrayList.get(i).getAuthor());
                 intent.putExtra("subject",arrayList.get(i).getSubject());
                 intent.putExtra("description",arrayList.get(i).getDescription());
                 intent.putExtra("listId",arrayList.get(i).getId());
@@ -89,18 +90,16 @@ public class MainActivity extends AppCompatActivity {
             case R.id.aboutIdMainActivity:
                 about();
                 return true;
-
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }*/
 
     public void view() {
         Cursor cursor = db.display();
         while (cursor.moveToNext()) {
             Information information = new Information(cursor.getString(0),cursor.getString(1),
-                    cursor.getString(2),cursor.getString(3));
+                    cursor.getString(2),cursor.getString(3),cursor.getString(4));
             arrayList.add(information);
         }
         Collections.reverse(arrayList);//reversing arrayList for showing data in a proper way

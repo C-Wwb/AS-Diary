@@ -15,7 +15,7 @@ import com.example.fauziahrizky.diary.R;
 import java.util.Date;
 
 public class UpdateActivity extends AppCompatActivity {
-    EditText subjectEt,descriptionEt;
+    EditText authorEt,subjectEt,descriptionEt;
     Button cancelBt,updateBt,shareBtOnUpdate;
     SqliteDatabase dbUpdate;
     @Override
@@ -27,6 +27,7 @@ public class UpdateActivity extends AppCompatActivity {
         dbUpdate = new SqliteDatabase(this);
         SQLiteDatabase sqliteDatabase = dbUpdate.getWritableDatabase();
 
+        authorEt = findViewById(R.id.authorEditTextIdUpdate);
         subjectEt = findViewById(R.id.subjectEditTextIdUpdate);
         descriptionEt = findViewById(R.id.descriptionEditTextIdUpdate);
 
@@ -36,11 +37,13 @@ public class UpdateActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         Bundle bundle = getIntent().getExtras();
+        //String aut = "wwb";
+        String aut = intent.getStringExtra("author");
         String sub = intent.getStringExtra("subject");
         String des = intent.getStringExtra("description");
         final String id = intent.getStringExtra("listId");
 
-
+        authorEt.setText(aut);
         subjectEt.setText(sub);
         descriptionEt.setText(des);
 
@@ -48,8 +51,10 @@ public class UpdateActivity extends AppCompatActivity {
         shareBtOnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent shareIntent =   new Intent(android.content.Intent.ACTION_SEND);
+                Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
+                String aut = authorEt.getText().toString();
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, aut);
                 String sub = subjectEt.getText().toString();
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT,sub);
                 String des = descriptionEt.getText().toString();
@@ -72,12 +77,12 @@ public class UpdateActivity extends AppCompatActivity {
                 Date date = new Date();
                 String d = (String) android.text.format.DateFormat.format("dd/MM/yyyy  hh:mm:ss",date);
 
-                if(dbUpdate.update(subjectEt.getText().toString(),descriptionEt.getText().toString(),d,id)==true){
+                if(dbUpdate.update(authorEt.getText().toString(), subjectEt.getText().toString(),descriptionEt.getText().toString(),d,id)==true){
                     Toast.makeText(getApplicationContext(),"Data updated",Toast.LENGTH_SHORT).show();
                     backToMain();
                 }
             }
-     });
+        });
     }
 
     //this method to clearing top activity and starting new activity

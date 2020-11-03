@@ -44,6 +44,23 @@
         android:orientation="vertical">
 
         <EditText
+            android:id="@+id/authorEditTextIdUpdate"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:backgroundTint="#00ffffff"
+            android:ems="10"
+            android:hint="Author"
+            android:inputType="textPersonName"
+
+            android:maxLength="35"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
             android:id="@+id/subjectEditTextIdUpdate"
             android:layout_width="match_parent"
             android:layout_height="60dp"

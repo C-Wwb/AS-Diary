@@ -34,12 +34,14 @@ public class InformationAdapter extends ArrayAdapter<Information> {
         Information item = ItemList.get(position);
 
         //finding listview shape component
+        TextView author = view.findViewById(R.id.authorListViewShapeId);
         TextView subject = view.findViewById(R.id.subjectListViewShapeId);
         TextView date = view.findViewById(R.id.dateListViewShapeId);
         //return super.getView(position, convertView, parent);
 
 
         //setting listview shape component to arrryList
+        author.setText(item.getAuthor());
         subject.setText(item.getSubject());
         date.setText(item.getDateTime());
 

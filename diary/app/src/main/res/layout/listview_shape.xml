@@ -11,6 +11,15 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/authorListViewShapeId"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:text="Author"
+            android:textColor="@android:color/background_dark"
+            android:textSize="20dp"
+            android:layout_margin="3dp"
+            />
+        <TextView
             android:id="@+id/subjectListViewShapeId"
             android:layout_width="match_parent"
             android:layout_height="39dp"
